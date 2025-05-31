@@ -1,0 +1,401 @@
+/* Estilos específicos do formulário do alimentador */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Estilo para o input de tempo não mostrar o ícone de calendário no Chrome/Edge */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+:root {
+    --verde-escuro: #0c3b2e;
+    --verde: #6d9773;
+    --degrade-btn: linear-gradient(#167b8b, #0f4c55);
+    --color-p: #a1a1a1;
+    --color-p-2: #868585;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+    margin-right: 20px;
+}
+
+
+.background-verde {
+    background: var(--verde-escuro);
+    height: 100vh;
+}
+
+/* classes reutilizáveis*/
+.container {
+    max-width: 1440px;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+
+.btn-gradiente {
+    font-size: 20px;
+    padding: 10px 25px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: var(--degrade-btn);
+}
+
+/* Classes do site */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.ul {
+    display: flex;
+    align-items: center;
+}
+
+.ul li {
+    margin: 0 35px;
+    font-size: 15px;
+}
+
+.ul li a {
+    font-size: 20px;
+    color: white;
+}
+
+/* main */
+main .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.main-text {
+    width: 35%;
+    color: white;
+}
+
+.main-text h1 {
+    font-size: 5.5rem;
+}
+
+.main-text div {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.main-img {
+    width: 50%;
+}
+
+.main-img img {
+    width: 100%;
+    padding: 10%;
+}
+/* menu icon */
+.menu-icon{
+    display: none;
+    position: relative;
+    z-index: 10;
+}
+
+/* responsivo */ 
+@media (max-width: 960px) {
+    .menu-icon{
+        display: block;
+    }
+    .ul {
+        position: fixed;
+        background: var(--verde-escuro);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        left: 100%;
+        transition: 0.3s;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .ul li{
+        font-size: 20px;
+        margin: 20px 0;
+    }
+    .ul.ativo{
+        left: 0 ;
+        z-index: 10;
+    }
+    main .container{
+        flex-direction: column;
+    }
+    main .container .main-img,
+    main .container .main-text{
+        width: 100%;
+        text-align: center;
+    }
+    main .container .main-text h1{
+        font-size: 4rem;
+    }
+    main .container .main-text div{
+        justify-content: center;
+    }
+}
+
+
+
+
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+    /* Adicionado para permitir interação quando visível */
+}
+
+.toast.success {
+    background-color: #2ecc71;
+    /* verde */
+    color: white;
+}
+
+.toast.error {
+    background-color: #e74c3c;
+    /* vermelho */
+    color: white;
+}
+
+.toast.info {
+    background-color: #3498db;
+    /* azul */
+    color: white;
+}
+
+.icon-button svg {
+    /* Estilo para botões com ícones no formulário */
+    width: 18px;
+    height: 18px;
+}
+
+.formulario-alimentador-container {
+    background-color: #5c8061;
+    color: #FFFFFF; 
+}
+
+#btn-adicionar {
+    background-color: #57795c;
+    /* vermelho */; /* Exemplo: um verde específico */
+    color: white; /* Cor do texto */
+    /* Outras propriedades que você queira, como borda, se não estiverem no Tailwind */
+    /* border: none; */
+}
+
+#btn-adicionar:hover {
+    background-color: #3d5541; /* Um tom de verde um pouco mais escuro para o hover */
+}
+
+
+/* No seu arquivo alimentador.css ou css/style.css */
+
+#btn-sub {
+    background-color: #167b8b; /* Exemplo: um vermelho específico para "perigo" ou ação imediata */
+    color: white; /* Cor do texto */
+}
+
+#btn-sub:hover {
+    background-color: #0f4c55; /* Um tom de vermelho um pouco mais escuro para o hover */
+}
+
+
+.formulario {
+    background-color: var(--verde);
+    padding: 60px 0px;
+}
+
+
+.parte_sup {
+    padding: 80px;
+}
+
+.contato {
+    padding: 0px;
+    padding-top: 50px;
+}
+
+.scrollTop {
+    outline: none;
+    border: 0;
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    box-shadow: 0 1px 6px 2px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease;
+}
+
+.scrollTop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scrollTop img{
+    width: 100%;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos para o Carrossel */
+.main-carousel {
+    width: 50%; /* Ocupa a mesma largura da .main-img antiga */
+    position: relative;
+    overflow: hidden; /* Garante que as imagens que não estão ativas fiquem ocultas */
+    height: 100%; /* Ajuste a altura conforme necessário, ou use max-height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transição suave entre as imagens */
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    min-width: 100%; /* Cada item ocupa 100% da largura do .carousel-inner */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+    max-height: 650px; /* Aumente este valor para deixar as imagens maiores */
+    object-fit: contain;
+    padding: 5%;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+    border-radius: 5px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: white;
+}
+
+/* Ajustes responsivos para o carrossel */
+@media (max-width: 960px) {
+    .main-carousel {
+        width: 100%; /* Ocupa a largura total em telas menores */
+        margin-top: 30px; /* Adiciona um espaço superior se necessário */
+    }
+}
+
+.main-carousel {
+    width: 65%; /* Aumenta a largura do carrossel */
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Pode manter ou ajustar conforme a proporção das imagens */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
